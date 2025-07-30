@@ -30,6 +30,21 @@ IF(APPLE)
   link_directories( /usr/local/lib )
 ENDIF(APPLE)
 
+# Add numpy headers explicitly to handle pip installations as well
+find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+execute_process(
+  COMMAND ${Python3_EXECUTABLE} -c "import numpy; import os; print(os.path.join(os.path.dirname(numpy.__file__), 'core', 'include', 'numpy'))"
+  OUTPUT_VARIABLE NUMPY_INCLUDE_PATH
+  OUTPUT_STRIP_TRAILING_WHITESPACE
+  ERROR_QUIET
+)
+
+if(NUMPY_INCLUDE_PATH AND EXISTS ${NUMPY_INCLUDE_PATH})
+  message("Found numpy headers at ${NUMPY_INCLUDE_PATH}")
+  include_directories(${NUMPY_INCLUDE_PATH})
+  include_directories(${NUMPY_INCLUDE_PATH}/..)
+endif()
+
 ##############
 ## Building ##
 ##############
