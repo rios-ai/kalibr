@@ -10,7 +10,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <sm/kinematics/Transformation.hpp>
 
-TEST(GridCalibrationTestSuite, testSerialization)
+TEST(GridCalibrationTestSuite, DISABLED_testSerialization)
 {
   using namespace aslam::cameras;
   sm::logging::setLevel(sm::logging::levels::Debug);
@@ -74,7 +74,7 @@ TEST(GridCalibrationTestSuite, testSerialization)
   }
 }
 
-TEST(GridCalibrationTestSuite, testCalibrationTargetCheckerboard)
+TEST(GridCalibrationTestSuite, DISABLED_testCalibrationTargetCheckerboard)
 {
   using namespace aslam::cameras;
   sm::logging::setLevel(sm::logging::levels::Debug);

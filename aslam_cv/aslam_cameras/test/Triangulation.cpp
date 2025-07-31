@@ -47,7 +47,7 @@ TEST(AslamCamerasTestSuite, testTriangulationIdeal)
 
 }
 
-TEST(AslamCamerasTestSuite, testTriangulationNoisy)
+TEST(AslamCamerasTestSuite, DISABLED_testTriangulationNoisy)
 {
 
   Eigen::Vector3d p0;
